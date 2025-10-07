@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kvsTek eServices - Technology Trainer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#home" class="logo">
+                    <span class="logo-icon">🎓</span>
+                    <span class="logo-text">kvsTek eServices</span>
+                </a>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#courses" class="nav-link">Courses</a></li>
+                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-shape shape-1"></div>
+            <div class="hero-shape shape-2"></div>
+            <div class="hero-shape shape-3"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Empowering</span> Your Tech Journey
+                    </h1>
+                    <p class="hero-subtitle">
+                        Professional Technology Training in App Development, Web Development, 
+                        and Hardware & Networking Support
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#courses" class="btn btn-primary">
+                            <span>Explore Courses</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span>Get in Touch</span>
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Students Trained</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Courses Offered</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Success Rate</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-wrapper">
+                        <div class="floating-card card-1">
+                            <i class="fas fa-code"></i>
+                            <span>Web Dev</span>
+                        </div>
+                        <div class="floating-card card-2">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>App Dev</span>
+                        </div>
+                        <div class="floating-card card-3">
+                            <i class="fas fa-network-wired"></i>
+                            <span>Networking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title">Your Technology Training Partner</h2>
+                <p class="section-description">
+                    Dedicated to transforming aspiring tech enthusiasts into skilled professionals
+                </p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="about-image-wrapper">
+                        <div class="about-decoration"></div>
+                        <i class="fas fa-chalkboard-teacher about-icon"></i>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>About kvsTek eServices</h3>
+                    <p>
+                        As a passionate technology training partner, We specialize in delivering comprehensive 
+                        training programs that bridge the gap between theoretical knowledge and 
+                        practical industry skills.
+                    </p>
+                    <p>
+                        With years of experience in the tech industry, I've helped hundreds of 
+                        students master cutting-edge technologies and launch successful careers in 
+                        software development and IT infrastructure.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Industry-Relevant Curriculum</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Hands-On Project Experience</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Personalized Learning Approach</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Career Guidance & Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What I Offer</span>
+                <h2 class="section-title">Training Services</h2>
+                <p class="section-description">
+                    Comprehensive technology training programs tailored to your learning goals
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>App Development</h3>
+                    <p>
+                        Master mobile app development for iOS and Android platforms. Learn to build 
+                        native and cross-platform applications using modern frameworks and tools.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> React Native & Flutter</li>
+                        <li><i class="fas fa-check"></i> iOS & Android Development</li>
+                        <li><i class="fas fa-check"></i> UI/UX Best Practices</li>
+                        <li><i class="fas fa-check"></i> App Deployment & Publishing</li>
+                    </ul>
+                </div>
+                <div class="service-card featured">
+                    <div class="featured-badge">Most Popular</div>
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>
+                        Learn full-stack web development from scratch. Build responsive, dynamic 
+                        websites and web applications using the latest technologies and frameworks.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> HTML, CSS, JavaScript</li>
+                        <li><i class="fas fa-check"></i> React, Vue, Angular</li>
+                        <li><i class="fas fa-check"></i> Node.js & Backend Development</li>
+                        <li><i class="fas fa-check"></i> Database & API Integration</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Hardware & Networking</h3>
+                    <p>
+                        Gain expertise in computer hardware, network infrastructure, and IT support. 
+                        Learn to troubleshoot, configure, and maintain enterprise systems.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Computer Hardware Basics</li>
+                        <li><i class="fas fa-check"></i> Network Configuration</li>
+                        <li><i class="fas fa-check"></i> System Administration</li>
+                        <li><i class="fas fa-check"></i> Troubleshooting & Support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Learning Paths</span>
+                <h2 class="section-title">Featured Courses</h2>
+                <p class="section-description">
+                    Structured learning programs designed to take you from beginner to professional
+                </p>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-category">Web Development</div>
+                        <div class="course-level">Beginner</div>
+                    </div>
+                    <h3>Frontend Development Fundamentals</h3>
+                    <p>Master HTML, CSS, and JavaScript to build beautiful, responsive websites.</p>
+                    <div class="course-meta">
+                        <span><i class="fas fa-clock"></i> 8 Weeks</span>
+                        <span><i class="fas fa-signal"></i> Beginner</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-category">Web Development</div>
+                        <div class="course-level">Intermediate</div>
+                    </div>
+                    <h3>Full-Stack JavaScript Developer</h3>
+                    <p>Build complete web applications with React, Node.js, and MongoDB.</p>
+                    <div class="course-meta">
+                        <span><i class="fas fa-clock"></i> 12 Weeks</span>
+                        <span><i class="fas fa-signal"></i> Intermediate</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-category">App Development</div>
+                        <div class="course-level">Intermediate</div>
+                    </div>
+                    <h3>Mobile App Development with React Native</h3>
+                    <p>Create cross-platform mobile apps for iOS and Android.</p>
+                    <div class="course-meta">
+                        <span><i class="fas fa-clock"></i> 10 Weeks</span>
+                        <span><i class="fas fa-signal"></i> Intermediate</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-category">App Development</div>
+                        <div class="course-level">Advanced</div>
+                    </div>
+                    <h3>Native Android Development</h3>
+                    <p>Build powerful Android apps using Kotlin and Android Studio.</p>
+                    <div class="course-meta">
+                        <span><i class="fas fa-clock"></i> 12 Weeks</span>
+                        <span><i class="fas fa-signal"></i> Advanced</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-category">Networking</div>
+                        <div class="course-level">Beginner</div>
+                    </div>
+                    <h3>Computer Hardware & Troubleshooting</h3>
+                    <p>Learn to assemble, maintain, and repair computer systems.</p>
+                    <div class="course-meta">
+                        <span><i class="fas fa-clock"></i> 6 Weeks</span>
+                        <span><i class="fas fa-signal"></i> Beginner</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-category">Networking</div>
+                        <div class="course-level">Intermediate</div>
+                    </div>
+                    <h3>Network Administration & Security</h3>
+                    <p>Configure and secure enterprise networks and infrastructure.</p>
+                    <div class="course-meta">
+                        <span><i class="fas fa-clock"></i> 10 Weeks</span>
+                        <span><i class="fas fa-signal"></i> Intermediate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Success Stories</span>
+                <h2 class="section-title">What Students Say</h2>
+                <p class="section-description">
+                    Real feedback from students who transformed their careers
+                </p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "kvsTek eServices's web development course was exactly what I needed. The hands-on 
+                        approach and real-world projects helped me land my first developer job!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Priya Sharma</h4>
+                            <p>Frontend Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "The mobile app development training was comprehensive and practical. 
+                        I built three apps during the course and now I'm working as a freelance developer."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Rahul Verma</h4>
+                            <p>Mobile App Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "The networking course gave me the skills I needed to become a certified 
+                        network administrator. Great instructor and excellent support throughout!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Amit Patel</h4>
+                            <p>Network Administrator</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Training</span>
+                <h2 class="section-title">Training in Action</h2>
+                <p class="section-description">
+                    Glimpses from our interactive training sessions and workshops
+                </p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&h=400&fit=crop" alt="Students in web development training" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Web Development Workshop</h4>
+                        <p>Hands-on coding session</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop" alt="Group training session" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Interactive Learning</h4>
+                        <p>Collaborative problem solving</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop" alt="Students learning app development" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Mobile App Development</h4>
+                        <p>Building real-world apps</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=400&fit=crop" alt="Computer lab training" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Hardware & Networking Lab</h4>
+                        <p>Practical hardware training</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" alt="Team project work" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Project Presentations</h4>
+                        <p>Students showcasing their work</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop" alt="Classroom training session" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Classroom Sessions</h4>
+                        <p>Engaging lectures and demos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get in Touch</span>
+                <h2 class="section-title">Start Your Learning Journey</h2>
+                <p class="section-description">
+                    Ready to upgrade your tech skills? Let's connect and discuss your goals
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Feel free to reach out for course inquiries, enrollment, or any questions about the training programs.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>kvstek4eservices@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>+91 9400251470</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Available for Online & Offline Training</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/@kuttiprogrammers60" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="course">Interested In</label>
+                            <select id="course" name="course">
+                                <option value="">Select a course</option>
+                                <option value="web">Web Development</option>
+                                <option value="app">App Development</option>
+                                <option value="networking">Hardware & Networking</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>kvsTek eServices</h3>
+                    <p>Empowering the next generation of tech professionals through quality training and mentorship.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Web Development</a></li>
+                        <li><a href="#services">App Development</a></li>
+                        <li><a href="#services">Hardware & Networking</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/@kuttiprogrammers60" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 kvsTek eServices. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
