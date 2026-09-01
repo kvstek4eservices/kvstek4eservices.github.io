@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#f4f7fb;
+}
+
+.container{
+    width:100%;
+    max-width:450px;
+    padding:20px;
+}
+
+.card{
+    background:#fff;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.card h2{
+    text-align:center;
+    margin-bottom:10px;
+    color:#1f2937;
+}
+
+.subtitle{
+    text-align:center;
+    color:#6b7280;
+    margin-bottom:25px;
+    font-size:14px;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:600;
+    color:#374151;
+}
+
+input{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    font-size:15px;
+    transition:0.3s;
+}
+
+input:focus{
+    outline:none;
+    border-color:#2563eb;
+    box-shadow:0 0 0 3px rgba(37,99,235,0.15);
+}
+
+button{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+button:disabled{
+    opacity:0.7;
+    cursor:not-allowed;
+}
+
+
+/* READ PAGE LINK */
+
+.read-link{
+    display:block;
+    width:100%;
+    padding:13px;
+    margin-top:12px;
+
+    border-radius:8px;
+
+    background:#059669;
+    color:white;
+
+    text-align:center;
+    text-decoration:none;
+
+    font-size:16px;
+    font-weight:600;
+
+    transition:0.3s;
+}
+
+.read-link:hover{
+    background:#047857;
+}
+
+
+#msg{
+    margin-top:18px;
+    text-align:center;
+    font-weight:600;
+}
+
+.success{
+    color:#15803d;
+}
+
+.error{
+    color:#dc2626;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+```
+<div class="card">
+
+    <h2>Student Registration</h2>
+
+    <p class="subtitle">
+        Fill in your details and submit the registration form.
+    </p>
+
+
+    <form id="regForm">
+
+
+        <div class="form-group">
+
+            <label>Name</label>
+
+            <input
+                type="text"
+                name="name"
+                required>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                name="email"
+                required>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Phone Number</label>
+
+            <input
+                type="text"
+                name="phone"
+                required>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Qualification</label>
+
+            <input
+                type="text"
+                name="qualification"
+                required>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Any remarks</label>
+
+            <input
+                type="text"
+                name="remarks"
+                required>
+
+        </div>
+
+
+        <button
+            type="submit"
+            id="submitBtn">
+
+            Register
+
+        </button>
+
+
+    </form>
+
+
+    <!-- MESSAGE -->
+
+    <div id="msg"></div>
+
+
+    <!-- READ PAGE LINK -->
+
+    <a
+        href="appRead1.html"
+        class="read-link"
+        target="_blank">
+
+        📋 View Registration Records
+
+    </a>
+
+
+</div>
+```
+
+</div>
+
+<script>
+
+
+const form =
+    document.getElementById("regForm");
+
+
+const submitBtn =
+    document.getElementById("submitBtn");
+
+
+// ==========================================
+// INSERT APPS SCRIPT URL
+// ==========================================
+
+const scriptURL ="https://script.google.com/macros/s/AKfycbyVS9w59U3wngYDHFYwq1tzp8qkXWTWykIOmhZS6okS42tAVX6kk3OAvmTXkDbl3c1N/exec";
+//"https://script.google.com/macros/s/AKfycbzWyAbk36aqJnrzqAhIu_do5ELZ7Tpw64c1Jz7dZ2xJjUxR9B7bcZ1CG7Y1CodAoWuP/exec";
+
+
+form.addEventListener(
+    "submit",
+    function(e) {
+
+        e.preventDefault();
+
+
+        submitBtn.disabled = true;
+
+        submitBtn.innerText =
+            "Submitting...";
+
+
+        const formData =
+            new FormData(form);
+
+
+        fetch(scriptURL, {
+
+            method: "POST",
+
+            body: formData,
+
+            mode: "no-cors"
+
+        })
+
+
+        .then(() => {
+
+
+            alert(
+                "✓ Registration submitted successfully!"
+            );
+
+
+            form.reset();
+
+
+            submitBtn.disabled = false;
+
+            submitBtn.innerText =
+                "Register";
+
+
+        })
+
+
+        .catch((error) => {
+
+
+            console.error(error);
+
+
+            submitBtn.disabled = false;
+
+            submitBtn.innerText =
+                "Register";
+
+
+        });
+
+    }
+);
+
+</script>
+
+</body>
+</html>

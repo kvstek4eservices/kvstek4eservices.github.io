@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+   content="width=device-width, initial-scale=1.0">
+
+<title>Registration Records</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+body {
+    background: #f4f7fb;
+    padding: 40px;
+}
+
+
+.container {
+    max-width: 1250px;
+    margin: auto;
+}
+
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.1);
+}
+
+
+h2 {
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+
+.subtitle {
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+
+.toolbar {
+    margin-bottom: 20px;
+}
+
+
+button {
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+button:hover {
+    background: #1d4ed8;
+}
+
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 1000px;
+}
+
+
+th {
+    background: #2563eb;
+
+    color: white;
+
+    padding: 14px;
+
+    text-align: left;
+
+    white-space: nowrap;
+}
+
+
+td {
+    padding: 13px;
+
+    border-bottom:
+        1px solid #e5e7eb;
+
+    vertical-align: top;
+}
+
+
+tr:hover {
+    background: #f9fafb;
+}
+
+
+.status {
+    margin-top: 20px;
+
+    font-weight: 600;
+}
+
+
+.loading {
+    color: #2563eb;
+}
+
+
+.success {
+    color: #15803d;
+}
+
+
+.error {
+    color: #dc2626;
+}
+
+
+.empty {
+    text-align: center;
+
+    padding: 30px;
+
+    color: #6b7280;
+}
+
+
+.remarks {
+    max-width: 250px;
+
+    white-space: normal;
+
+    word-wrap: break-word;
+}
+
+.table-container {
+    width: 100%;
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: auto;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+}
+th {
+    background: #2563eb;
+    color: white;
+    padding: 14px;
+    text-align: left;
+    white-space: nowrap;
+
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+.pdf-area {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.pdf-btn {
+    background: #dc2626;
+    padding: 12px 22px;
+}
+
+.pdf-btn:hover {
+    background: #b91c1c;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h2>
+    Registration Records
+</h2>
+
+<p class="subtitle">
+    Student registration data from Google Sheets
+</p>
+
+<div class="toolbar">
+
+<button onclick="loadData()">
+    🔄 Refresh Data
+</button>
+
+</div>
+
+<div class="table-container">
+
+<table id="registrationTable">
+
+<thead>
+
+<tr>
+
+<th>
+    Application Date
+</th>
+
+<th>
+    Name
+</th>
+
+<th>
+    Email
+</th>
+
+<th>
+    Phone
+</th>
+
+<th>
+    Qualification
+</th>
+
+<th>
+    Remarks
+</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tableBody">
+
+</tbody>
+
+</table>
+
+</div>
+<div class="pdf-area">
+
+    <button
+        class="pdf-btn"
+        onclick="generatePDF()">
+
+        📄 Generate PDF
+
+    </button>
+
+</div>
+
+<div id="status"
+     class="status">
+
+</div>
+
+</div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script>
+
+
+// ==============================================
+// GOOGLE APPS SCRIPT WEB APP URL
+// ==============================================
+
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbytM5HtTjUiZdIxSM-3PmAV2hDp07_qKyP5ELWeUdSn_XEx3Vq7VlDoVhrxGi58Jd7J/exec";
+
+
+// ==============================================
+// LOAD DATA
+// ==============================================
+
+function loadData() {
+
+
+    const tbody =
+        document.getElementById("tableBody");
+
+
+    const status =
+        document.getElementById("status");
+
+
+    // Clear old records
+
+    tbody.innerHTML = "";
+
+
+    status.className =
+        "status loading";
+
+
+    status.innerHTML =
+        "Loading registration records...";
+
+
+    fetch(SCRIPT_URL)
+
+
+    .then(response => {
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "HTTP Error: " +
+                response.status
+            );
+
+        }
+
+
+        return response.json();
+
+    })
+
+
+    .then(data => {
+
+
+        console.log(
+            "Google Sheet Data:",
+            data
+        );
+
+
+        // Check for Apps Script error
+
+        if (
+            !Array.isArray(data) &&
+            data.success === false
+        ) {
+
+            throw new Error(
+                data.error
+            );
+
+        }
+
+
+        // No records
+
+        if (
+            Array.isArray(data) &&
+            data.length === 0
+        ) {
+
+
+            tbody.innerHTML = `
+
+                <tr>
+
+                    <td colspan="6"
+                        class="empty">
+
+                        No registration records found.
+
+                    </td>
+
+                </tr>
+
+            `;
+
+
+            status.className =
+                "status";
+
+
+            status.innerHTML =
+                "No records found.";
+
+
+            return;
+
+        }
+
+
+        // Display records
+
+        data.forEach(row => {
+
+
+            const tr =
+                document.createElement("tr");
+
+
+            // Application Date
+
+            const timestamp =
+                document.createElement("td");
+
+            timestamp.textContent =
+                row.timestamp || "";
+
+
+            // Name
+
+            const name =
+                document.createElement("td");
+
+            name.textContent =
+                row.name || "";
+
+
+            // Email
+
+            const email =
+                document.createElement("td");
+
+            email.textContent =
+                row.email || "";
+
+
+            // Phone
+
+            const phone =
+                document.createElement("td");
+
+            phone.textContent =
+                row.phone || "";
+
+
+            // Qualification
+
+            const qualification =
+                document.createElement("td");
+
+            qualification.textContent =
+                row.qualification || "";
+
+
+            // Remarks
+
+            const remarks =
+                document.createElement("td");
+
+            remarks.className =
+                "remarks";
+
+            remarks.textContent =
+                row.remarks || "";
+
+
+            // Add cells
+
+            tr.appendChild(timestamp);
+
+            tr.appendChild(name);
+
+            tr.appendChild(email);
+
+            tr.appendChild(phone);
+
+            tr.appendChild(qualification);
+
+            tr.appendChild(remarks);
+
+
+            // Add row
+
+            tbody.appendChild(tr);
+
+        });
+
+
+        // Success message
+
+        status.className =
+            "status success";
+
+
+        status.innerHTML =
+            "Loaded " +
+            data.length +
+            " registration record(s) successfully.";
+
+
+    })
+
+
+    .catch(error => {
+
+
+        console.error(
+            "Loading error:",
+            error
+        );
+
+
+        status.className =
+            "status error";
+
+
+        status.innerHTML =
+            "Failed to load data: " +
+            error.message;
+
+    });
+
+}
+
+
+// ==============================================
+// AUTOMATICALLY LOAD WHEN PAGE OPENS
+// ==============================================
+
+window.addEventListener(
+    "load",
+    loadData
+);
+
+function generatePDF() {
+
+    const { jsPDF } = window.jspdf;
+
+    const doc = new jsPDF("landscape");
+
+
+    // Title
+
+    doc.setFontSize(18);
+
+    doc.text(
+        "Registration Records",
+        14,
+        15
+    );
+
+
+    // Date generated
+
+    doc.setFontSize(10);
+
+    const today =
+        new Date().toLocaleString();
+
+    doc.text(
+        "Generated: " + today,
+        14,
+        22
+    );
+
+
+    // Get table data
+
+    const rows =
+        document.querySelectorAll(
+            "#tableBody tr"
+        );
+
+
+    const tableData = [];
+
+
+    rows.forEach(row => {
+
+        const cells =
+            row.querySelectorAll("td");
+
+
+        if (cells.length === 6) {
+
+            tableData.push([
+
+                cells[0].innerText,
+
+                cells[1].innerText,
+
+                cells[2].innerText,
+
+                cells[3].innerText,
+
+                cells[4].innerText,
+
+                cells[5].innerText
+
+            ]);
+
+        }
+
+    });
+
+
+    if (tableData.length === 0) {
+
+        alert(
+            "No registration records available."
+        );
+
+        return;
+
+    }
+
+
+    // Generate PDF table
+
+    doc.autoTable({
+
+        startY: 28,
+
+        head: [[
+
+            "Application Date",
+
+            "Name",
+
+            "Email",
+
+            "Phone",
+
+            "Qualification",
+
+            "Remarks"
+
+        ]],
+
+        body: tableData,
+
+        styles: {
+
+            fontSize: 8,
+
+            cellPadding: 3
+
+        },
+
+        headStyles: {
+
+            fontSize: 9
+
+        },
+
+        columnStyles: {
+
+            0: { cellWidth: 32 },
+
+            1: { cellWidth: 30 },
+
+            2: { cellWidth: 45 },
+
+            3: { cellWidth: 30 },
+
+            4: { cellWidth: 35 },
+
+            5: { cellWidth: 65 }
+
+        },
+
+        margin: {
+
+            left: 10,
+
+            right: 10
+
+        }
+
+    });
+
+
+    // Save PDF
+
+    doc.save(
+        "Registration_Records.pdf"
+    );
+
+}
+</script>
+
+</body>
+
+</html>
